@@ -1,10 +1,10 @@
 import React from 'react'
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { useAuth } from './hooks/useAuth';
-import LoginPage from './component/Login'
-import SignUp from './component/SignUp/SignUp'
-import Dashboard from './component/Dashboard'
-import ForgotPassword from './component/ForgotPassword'
+import LoginPage from './components/Login'
+import SignUp from './components/SignUp/SignUp'
+import Dashboard from './components/Dashboard'
+import ForgotPassword from './components/ForgotPassword'
 import './App.css'
 
 // Protected Route Component
