@@ -114,7 +114,7 @@ const PersonalDetails = ({ onComplete }) => {
 
   const validateForm = () => {
     const newErrors = {};
-    const requiredFields = ['address', 'settlement'];
+    const requiredFields = ['address'];
     
     requiredFields.forEach(field => {
       if (!personalData[field]?.trim()) {
