@@ -5,9 +5,12 @@ import { readFile } from 'fs/promises';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import dotenv from 'dotenv';
+<<<<<<< HEAD
 import pkg from 'agora-access-token';
 const { RtcTokenBuilder, RtcRole } = pkg;
 
+=======
+>>>>>>> e5c8af25d6cd5e0b1108cfba295b3e37060ceb90
 dotenv.config();
 
 const app = express();
@@ -17,7 +20,11 @@ const PORT = process.env.PORT || 5000;
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
+<<<<<<< HEAD
 // Initialize Firebase Admin (only once)
+=======
+// Firebase setup
+>>>>>>> e5c8af25d6cd5e0b1108cfba295b3e37060ceb90
 (async () => {
   try {
     const serviceAccountPath = path.join(__dirname, 'serviceAccountKey.json');
@@ -61,7 +68,10 @@ const __dirname = path.dirname(__filename);
       }
     });
 
+<<<<<<< HEAD
     // Languages Route
+=======
+>>>>>>> e5c8af25d6cd5e0b1108cfba295b3e37060ceb90
     app.get('/api/languages', (_req, res) => {
       res.json([
         { value: 'english', label: 'English' },
@@ -87,11 +97,15 @@ const __dirname = path.dirname(__filename);
       ]);
     });
 
+<<<<<<< HEAD
     // Health Check Route
+=======
+>>>>>>> e5c8af25d6cd5e0b1108cfba295b3e37060ceb90
     app.get('/api/health', (_req, res) => {
       res.json({ status: 'ok', timestamp: new Date().toISOString() });
     });
 
+<<<<<<< HEAD
     // Agora Token Generation Route
     app.post('/api/agora/token', (req, res) => {
       const { channelName, uid } = req.body;
@@ -137,6 +151,8 @@ const __dirname = path.dirname(__filename);
     });
 
     // Start the server (moved outside the async IIFE)
+=======
+>>>>>>> e5c8af25d6cd5e0b1108cfba295b3e37060ceb90
     app.listen(PORT, '127.0.0.1', () => {
       console.log(`✅ Server is running on http://127.0.0.1:${PORT}`);
     });
@@ -145,6 +161,9 @@ const __dirname = path.dirname(__filename);
     process.exit(1);
   }
 })();
+<<<<<<< HEAD
 
 const AGORA_APP_ID = process.env.AGORA_APP_ID;
 const AGORA_APP_CERTIFICATE = process.env.AGORA_APP_CERTIFICATE;
+=======
+>>>>>>> e5c8af25d6cd5e0b1108cfba295b3e37060ceb90

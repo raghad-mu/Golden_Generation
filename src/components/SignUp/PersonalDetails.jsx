@@ -323,16 +323,30 @@ const PersonalDetails = memo(({ onComplete }) => {
     isNewImmigrant: false, // Add this new field
   });
   const [errors, setErrors] = useState({});
+<<<<<<< HEAD
   const [settlements, setSettlements] = useState([]);
+=======
+  
+  const { personalData, updatePersonalData } = useSignupStore();
+>>>>>>> e5c8af25d6cd5e0b1108cfba295b3e37060ceb90
   const [languages, setLanguages] = useState([]);
   const [countries, setCountries] = useState([]);
   const [loading, setLoading] = useState({
+<<<<<<< HEAD
     settlements: false, // Changed from true to false
     languages: true,
   });
   const [apiError, setApiError] = useState({
     settlements: false,
     languages: false,
+=======
+   
+    languages: true
+  });
+  const [apiError, setApiError] = useState({
+   
+    languages: false
+>>>>>>> e5c8af25d6cd5e0b1108cfba295b3e37060ceb90
   });
   const [searchTerm, setSearchTerm] = useState('');
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -348,6 +362,7 @@ const PersonalDetails = memo(({ onComplete }) => {
     { value: 'widowed', label: 'Widowed' },
   ];
 
+<<<<<<< HEAD
   // Replace fetch languages useEffect:
   useEffect(() => {
     try {
@@ -363,6 +378,9 @@ const PersonalDetails = memo(({ onComplete }) => {
       setLoading(prev => ({ ...prev, languages: false }));
     }
   }, []);
+=======
+  
+>>>>>>> e5c8af25d6cd5e0b1108cfba295b3e37060ceb90
 
   // Add this useEffect to fix the loading state issue
   useEffect(() => {
@@ -406,11 +424,16 @@ const PersonalDetails = memo(({ onComplete }) => {
 
   const validateForm = useCallback(() => {
     const newErrors = {};
+<<<<<<< HEAD
     const requiredFields = ['streetName', 'houseNumber']; // Base required fields
     // Add required fields for new immigrants
     if (formData.isNewImmigrant) {
       requiredFields.push('arrivalDate', 'originCountry');
     }
+=======
+    const requiredFields = ['address'];
+    
+>>>>>>> e5c8af25d6cd5e0b1108cfba295b3e37060ceb90
     requiredFields.forEach(field => {
       if (!formData[field]?.trim()) {
         let fieldName = field === 'streetName' ? 'Street Name' : 
@@ -420,6 +443,7 @@ const PersonalDetails = memo(({ onComplete }) => {
         newErrors[field] = `${fieldName} is required`;
       }
     });
+<<<<<<< HEAD
     // Validate house number is numeric
     if (formData.houseNumber && !/^\d{1,4}[A-Z]?$/.test(formData.houseNumber.trim())) {
       newErrors.houseNumber = 'House number must be numeric (e.g., 123 or 123A)';
@@ -428,6 +452,11 @@ const PersonalDetails = memo(({ onComplete }) => {
     if (formData.phoneNumber && !/^05\d{8}$/.test(formData.phoneNumber.trim())) {
       newErrors.phoneNumber = 'Phone number must be a valid Israeli number (e.g., 05XXXXXXXX)';
     }
+=======
+
+   
+
+>>>>>>> e5c8af25d6cd5e0b1108cfba295b3e37060ceb90
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   }, [formData]);
@@ -461,6 +490,7 @@ const PersonalDetails = memo(({ onComplete }) => {
 
   const getLanguageIcon = useCallback((language) => {
     const lowercaseLang = language.toLowerCase();
+<<<<<<< HEAD
     if (lowercaseLang === 'english') return <FaGlobe className="text-blue-500" />;
     if (lowercaseLang === 'spanish') return <FaComment className="text-red-500" />;
     if (lowercaseLang === 'french') return <FaFlag className="text-indigo-500" />;
@@ -468,6 +498,39 @@ const PersonalDetails = memo(({ onComplete }) => {
     if (lowercaseLang === 'arabic') return <FaBookReader className="text-green-600" />;
     return <FaHandshake className="text-gray-500" />;
   }, []);
+=======
+    let countryCode;
+  
+    switch (lowercaseLang) {
+      case 'english':
+        countryCode = 'gb'; // United Kingdom (or use 'us')
+        break;
+      case 'spanish':
+        countryCode = 'es';
+        break;
+      case 'french':
+        countryCode = 'fr';
+        break;
+      case 'hebrew':
+        countryCode = 'il';
+        break;
+      case 'arabic':
+        countryCode = 'sa'; // Saudi Arabia (or use 'ae', 'eg', etc.)
+        break;
+      default:
+        return <span className="text-xl">🌐</span>; // Fallback
+    }
+  
+    return (
+      <img
+        src={`https://flagcdn.com/w20/${countryCode}.png`}
+        alt={`${language} flag`}
+        className="w-5 h-4 object-cover rounded-sm"
+      />
+    );
+  };
+  
+>>>>>>> e5c8af25d6cd5e0b1108cfba295b3e37060ceb90
 
   const getFieldIcon = useCallback(
     (name) => {
@@ -482,6 +545,10 @@ const PersonalDetails = memo(({ onComplete }) => {
         case 'originCountry': return <FaGlobe className="text-[#FFD966]" />;
         case 'healthCondition': return <FaInfoCircle className="text-[#FFD966]" />;
         case 'militaryService': return <FaInfoCircle className="text-[#FFD966]" />;
+<<<<<<< HEAD
+=======
+        
+>>>>>>> e5c8af25d6cd5e0b1108cfba295b3e37060ceb90
         default: return <FaInfoCircle className="text-[#FFD966]" />;
       }
     },
@@ -548,6 +615,7 @@ const PersonalDetails = memo(({ onComplete }) => {
           </div>
         )}
 
+<<<<<<< HEAD
         <form ref={formRef} onSubmit={handleSubmit} className="space-y-12">
           {/* Contact Information */}
           <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-100 backdrop-blur-sm bg-white/95">
@@ -562,6 +630,47 @@ const PersonalDetails = memo(({ onComplete }) => {
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
               {/* Phone Number */}
+=======
+        {/* Language and Origin */}
+        <section className="space-y-4">
+          <div className="flex items-center gap-2 text-lg font-semibold text-gray-900 mb-4">
+            <FaCheck className="text-green-500" />
+            <h3>Language & Origin</h3>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
+            <FormField
+              label="Native Language"
+              name="nativeLanguage"
+            />
+            <FormField
+              label="Hebrew Level"
+              name="hebrewLevel"
+              type="select"
+              options={hebrewLevels}
+            />
+            <FormField
+              label="Arrival Date"
+              name="arrivalDate"
+              type="date"
+            />
+            <FormField
+              label="Country of Origin"
+              name="originCountry"
+              placeholder="Enter your country of origin"
+            />
+          </div>
+        </section>
+
+       
+        {/* Additional Information */}
+        <section className="space-y-4">
+          <div className="flex items-center gap-2 text-lg font-semibold text-gray-900 mb-4">
+            <FaCheck className="text-green-500" />
+            <h3>Additional Information</h3>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
+            <div className="space-y-4">
+>>>>>>> e5c8af25d6cd5e0b1108cfba295b3e37060ceb90
               <FormField
                 label="Phone Number"
                 name="phoneNumber"

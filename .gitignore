@@ -24,4 +24,8 @@ dist-ssr
 *.sw?
 
 .env
+<<<<<<< HEAD
+=======
+service-account.jsonserviceAccountKey.json
+>>>>>>> e5c8af25d6cd5e0b1108cfba295b3e37060ceb90
 serviceAccountKey.json

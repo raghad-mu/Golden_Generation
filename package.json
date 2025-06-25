@@ -14,18 +14,26 @@
     "@heroicons/react": "^2.2.0",
     "@radix-ui/react-tooltip": "^1.2.7",
     "@tailwindcss/vite": "^4.1.2",
+<<<<<<< HEAD
     "agora-access-token": "^2.0.4",
     "agora-rtc-sdk-ng": "^4.23.4",
     "antd": "^5.25.0",
     "cors": "^2.8.5",
     "date-fns": "^4.1.0",
+=======
+    "cors": "^2.8.5",
+>>>>>>> e5c8af25d6cd5e0b1108cfba295b3e37060ceb90
     "do": "^0.7.0",
     "dotenv": "^16.5.0",
     "express": "^5.1.0",
     "firebase": "^11.6.0",
     "firebase-admin": "^13.3.0",
+<<<<<<< HEAD
     "framer-motion": "^12.18.1",
     "i18next": "^25.2.1",
+=======
+    "framer-motion": "^12.6.3",
+>>>>>>> e5c8af25d6cd5e0b1108cfba295b3e37060ceb90
     "lodash": "^4.17.21",
     "lodash.debounce": "^4.0.8",
     "lucide-react": "^0.513.0",
